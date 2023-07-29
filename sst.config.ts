@@ -1,5 +1,7 @@
 import { SSTConfig } from "sst";
-import { API } from "./stacks/MyStack";
+import { ApiStack } from "./stacks/ApiStack";
+import { AuthStack } from "./stacks/AuthStack";
+import {StorageStack}  from "./stacks/StorageStack";
 
 const config: SSTConfig = {
   config(globals: any): any {
@@ -11,7 +13,7 @@ const config: SSTConfig = {
     };
   },
   stacks(app) {
-    app.stack(API);
+    app.stack(StorageStack).stack(ApiStack).stack(AuthStack);
   },
 };
 
